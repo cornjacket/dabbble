@@ -1,0 +1,32 @@
+<div>
+  <ul class="thumbnails">
+    <li class="shot span3" ng-repeat="shot in list.shots">
+      <a href="#/shots/{{shot.title}}">
+      <img ng-src="{{shot.image_url}}">
+    </a>
+    <strong class="title">{{shot.title}}</strong>
+    <a class="player" href="#/players/{{shot.player.username}}">
+      {{shot.player.name}}
+    </a>
+    <div class="stats">
+      <span class="stats">
+        <i class="icon-eye-open"></i>
+        {{ shot.views_count }}
+      </span>
+      <span class="stats">
+        <i class="icon-comment"></i>
+        {{ shot.comments_count }}
+      </span>
+      <span class="stats">
+        <i class="icon-heart"></i>
+        {{ shot.likes_count }}
+      </span>
+      <span class="stats">
+        <i class="icon-share-alt"></i>
+        {{ shot.rebounds_count }}
+      </span>
+                          
+    </div>
+    </li>
+  </ul>
+</div>
