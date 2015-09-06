@@ -1,6 +1,6 @@
 'use strict';
 
-var filters = angular.module('dabble.filters', [])
+var filters = angular.module('dabbble.filters', [])
 
 filters.filter('dabbbleDate', function($filter) { // function returns the filter
 
