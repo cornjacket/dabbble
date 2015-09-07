@@ -20,6 +20,22 @@ controllers.controller('ShotsListCtrl', function ($scope, dribbble, $routeParams
         console.log(shot.title)
       })*/
 	})
+
+  $scope.loadNextPage = function () {
+    // list has already been loaded and so we can add one to it
+    // add a new paramter to list method, params
+    // note that i added a + to $scope.list.page because '1' + 1 was returning '11' instead of '2'
+    dribbble.list(list, {page: +$scope.list.page + 1})
+      .then(function (data) {
+        // just to replace current 15 would be $scope.list = data.data
+        // here we are keeping current list intact and updating page and
+        // then concatting the new page on to list
+        $scope.list.page = data.data.page
+        $scope.list.shots = $scope.list.shots.concat(data.data.shots)
+        console.log(data)
+      })
+  }
+
 })
 
 controllers.controller('ShotsCtrl', function ($scope, $routeParams, dribbble) {
